@@ -72,6 +72,10 @@ DB_USERNAME=root
 DB_PASSWORD=password
 ```
 
+Next, install `doctrine/dbal` for a database abstraction layer.
+
+`composer require doctrine/dbal`
+
 ## Starting the built-in server
 
 Laravel comes with a built-in web server.
