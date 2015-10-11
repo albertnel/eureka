@@ -28,7 +28,9 @@ Next, enable the following PHP extensions in `php.ini`:
 
 ```
 extension=php_mbstring.dll
+extension=php_mysql.dll
 extension=php_openssl.dll
+extension=php_pdo_mysql.dll
 ```
 
 ### Redis
@@ -57,13 +59,17 @@ Open the `config/app.php` file. Change the `timezone` setting to:
 
 ## Database setup
 
-In the `.env` file, change the following fields to configure for your database setup:
+Create a database using the `utf8-unicode-ci` encoding:
+
+`CREATE DATABASE `eureka_laravel` /*!40100 COLLATE 'utf8_unicode_ci' */`
+
+In the `.env` found in the project root directory, change the following fields to configure for your database setup:
 
 ```
 DB_HOST=localhost
-DB_DATABASE=homestead
-DB_USERNAME=homestead
-DB_PASSWORD=secret
+DB_DATABASE=eureka_laravel
+DB_USERNAME=root
+DB_PASSWORD=password
 ```
 
 ## Starting the built-in server
