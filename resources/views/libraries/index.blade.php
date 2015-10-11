@@ -19,12 +19,6 @@ table td {
 <h2>Libraries</h2>
 
 <div class="row">
-
-	
-
-
-
-
 	
 	<div class="col-md-12">
 
@@ -40,8 +34,9 @@ table td {
 			@foreach ($libraries as $library)
 
 				<tr>
-					<td>{{ $library['name'] }}</td>
-					<td>{{ $library['questions'] }}</td>
+					<td>{{ $library->name }}</td>
+					<td></td>
+					<td><a href="{{ action('LibrariesController@edit', [$library->id]) }}">Edit</a></td>
 				</tr>
 				
 			@endforeach
