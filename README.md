@@ -5,7 +5,7 @@ Eureka
 
 If you are starting from scratch, follow the instructions below.
 
-If you already have PHP, Composer, Laravel and a database installed, follow these instructions.
+If you already have PHP, Composer, Laravel and a database installed, follow <a href="#cloning-the-existing-project">these instructions</a>.
 
 ### PHP
 
@@ -55,13 +55,13 @@ Add the Laravel `vendor/bin` path to your environmental `PATH` variable, eg:
 
 `C:\Users\<username>\AppData\Roaming\Composer\vendor\bin`
 
-## Laravel Setup
+### Laravel Setup
 
 Open the `config/app.php` file. Change the `timezone` setting to:
 
 `'timezone' => 'Africa/Johannesburg',`
 
-## Database setup
+### Database setup
 
 Create a database using the `utf8-unicode-ci` encoding:
 
@@ -80,7 +80,7 @@ Next, install `doctrine/dbal` for a database abstraction layer.
 
 `composer require doctrine/dbal`
 
-## Starting the built-in server
+### Starting the built-in server
 
 Laravel comes with a built-in web server.
 Go to the project directory and run:
