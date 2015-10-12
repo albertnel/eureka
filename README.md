@@ -1,7 +1,11 @@
 Eureka
 ===================
 
-## Windows Dev Environment Setup
+## New Windows Dev Environment Setup
+
+If you are starting from scratch, follow the instructions below.
+
+If you already have PHP, Composer, Laravel and a database installed, follow these instructions.
 
 ### PHP
 
@@ -82,3 +86,39 @@ Laravel comes with a built-in web server.
 Go to the project directory and run:
 
 `php artisan serve`
+
+## Cloning the existing project
+
+First, please make sure that all dependencies have been installed, ie PHP, Composer, Laravel and a working database.
+
+### Clone repo
+
+Clone the repository from github via one of the following methods.
+
+HTTPS: `https://github.com/albertnel/eureka.git`
+SSH: `git@github.com:albertnel/eureka.git`
+
+### Setting up the environment
+
+Copy the `.env.example` file and rename the copy to `.env`.
+
+Change the following fields to configure for your database setup:
+
+```
+DB_HOST=localhost
+DB_DATABASE=eureka_laravel
+DB_USERNAME=root
+DB_PASSWORD=password
+```
+
+### Install dependencies
+
+In the root folder of the repo, run:
+
+`composer install`
+
+### Generate a project key
+
+Run the following command to generate an `APP_KEY`
+
+`php artisan key:generate`
