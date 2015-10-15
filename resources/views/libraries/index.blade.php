@@ -42,6 +42,8 @@
 
 		</table>
 
+		<input type="button" class="btn btn-primary" value="Add New Library" onclick="window.location='{{ url('libraries/create') }}'">
+
 	</div>
 
 </div>

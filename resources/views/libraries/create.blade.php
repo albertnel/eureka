@@ -14,6 +14,7 @@
 
 		<div class="form-group">
 			{!! Form::submit('Add Library', ['class' => 'btn btn-primary form-control']) !!}
+			{!! Form::button('Cancel', ['class' => 'btn btn-danger', 'onclick' => 'window.location="/libraries"']) !!}
 		</div>
 
 	{!! Form::close() !!}
