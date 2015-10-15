@@ -34,6 +34,6 @@ class LibrariesController extends Controller
 
         Library::create($request);
 
-        return view('libraries.index');
+        return redirect('libraries');
     }
 }

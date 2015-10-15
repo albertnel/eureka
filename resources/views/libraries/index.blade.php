@@ -2,52 +2,43 @@
 
 @section('content')
 
-<style>
-
-table {
-	border: 1px solid black;
-	padding: 0px;
-}
-
-table td {
-	border: 1px solid black;
-	margin: 0px;
-}
-
-</style>
-
-<h2>Libraries</h2>
+<h1>Libraries</h1>
+<hr/>
 
 <div class="row">
 	
 	<div class="col-md-12">
 
-		<table>
-			<tr>
+		<table class="table table-bordered table-hover">
+			<thead>
 				<th>Name</th>
 				<th>Questions</th>
 				<th>Actions</th>
-			</tr>
+			</thead>
 
-		@if (count($libraries))
+			<tbody>
 
-			@foreach ($libraries as $library)
+				@if (count($libraries))
 
-				<tr>
-					<td>{{ $library->name }}</td>
-					<td></td>
-					<td><a href="{{ action('LibrariesController@show', [$library->id]) }}">Edit</a></td>
-				</tr>
-				
-			@endforeach
+					@foreach ($libraries as $library)
 
-		@else
+						<tr>
+							<td>{{ $library->name }}</td>
+							<td></td>
+							<td><a href="{{ action('LibrariesController@show', [$library->id]) }}">Edit</a></td>
+						</tr>
+						
+					@endforeach
 
-			<tr>
-				<td colspan="3">No libraries available yet.</td>
-			</tr>
+				@else
 
-		@endif
+					<tr>
+						<td colspan="3">No libraries available yet.</td>
+					</tr>
+
+				@endif
+
+			</tbody>
 
 		</table>
 
