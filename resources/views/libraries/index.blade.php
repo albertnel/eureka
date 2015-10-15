@@ -36,7 +36,7 @@ table td {
 				<tr>
 					<td>{{ $library->name }}</td>
 					<td></td>
-					<td><a href="{{ action('LibrariesController@edit', [$library->id]) }}">Edit</a></td>
+					<td><a href="{{ action('LibrariesController@show', [$library->id]) }}">Edit</a></td>
 				</tr>
 				
 			@endforeach
