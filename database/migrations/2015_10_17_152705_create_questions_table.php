@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLibrariesTable extends Migration
+class CreateQuestionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,15 @@ class CreateLibrariesTable extends Migration
      */
     public function up()
     {
-        Schema::create('libraries', function (Blueprint $table) {
+        Schema::create('questions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 50);
-            $table->string('description');
+            $table->integer('library_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('library_id')
+                ->references('id')
+                ->on('libraries')
+                ->onDelete('cascade');
         });
     }
 
@@ -27,6 +31,6 @@ class CreateLibrariesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('libraries');
+        Schema::drop('questions');
     }
 }
