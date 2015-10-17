@@ -15,7 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('libraries', 'LibrariesController@index');
-Route::get('libraries/create', 'LibrariesController@create');
-Route::get('libraries/{id}', 'LibrariesController@show');
-Route::post('libraries', 'LibrariesController@store');
+Route::resource('admin/libraries', 'LibrariesController');

@@ -6,7 +6,7 @@
 <hr/>
 
 <div class="row">
-	
+
 	<div class="col-md-12">
 
 		<table class="table table-bordered table-hover">
@@ -25,9 +25,12 @@
 						<tr>
 							<td>{{ $library->name }}</td>
 							<td></td>
-							<td><a href="{{ action('LibrariesController@show', [$library->id]) }}">Edit</a></td>
+							<td>
+								<a href="{{ action('LibrariesController@edit', [$library->id]) }}" title="Edit"><span class="glyphicon glyphicon-pencil"></span></a>
+								<a href="{{ action('LibrariesController@show', [$library->id]) }}" title="Delete"><span class="glyphicon glyphicon-trash"></span></a>
+							</td>
 						</tr>
-						
+
 					@endforeach
 
 				@else
@@ -42,7 +45,7 @@
 
 		</table>
 
-		<input type="button" class="btn btn-primary" value="Add New Library" onclick="window.location='{{ url('libraries/create') }}'">
+		<input type="button" class="btn btn-primary" value="Add New Library" onclick="window.location='{{ url('admin/libraries/create') }}'">
 
 	</div>
 

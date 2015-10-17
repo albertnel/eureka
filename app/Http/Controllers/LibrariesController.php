@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Library;
 use App\Http\Requests;
+use App\Http\Requests\LibraryRequest;
 use App\Http\Controllers\Controller;
-use Request;
 
 class LibrariesController extends Controller
 {
@@ -13,27 +13,40 @@ class LibrariesController extends Controller
     {
     	$libraries = Library::all();
 
-    	return view('libraries.index', compact('libraries'));
+    	return view('admin/libraries/index', compact('libraries'));
+    }
+
+    public function create()
+    {
+        return view('admin/libraries/create');
+    }
+
+    public function store(LibraryRequest $request)
+    {
+        Library::create($request->all());
+
+        return redirect('admin/libraries');
     }
 
     public function show($id)
     {
     	$library = Library::findOrFail($id);
 
-    	return view('libraries.edit', compact('library'));
+    	return view('admin/libraries/show', compact('library'));
     }
 
-    public function create()
+    public function edit($id)
     {
-        return view('libraries.create');
+        $library = Library::findOrFail($id);
+
+        return view('admin/libraries/edit', compact('library'));
     }
 
-    public function store()
+    public function update($id, LibraryRequest $request)
     {
-        $request = Request::all();
+        $library = Library::findOrFail($id);
+        $library->update($request->all());
 
-        Library::create($request);
-
-        return redirect('libraries');
+        return redirect('admin/libraries');
     }
 }
