@@ -16,12 +16,7 @@ class CreateLibrariesTable extends Migration
             $table->increments('id');
             $table->string('name', 50);
             $table->string('description');
-            $table->integer('created_by')->unsigned();
             $table->timestamps();
-
-            $table->foreign('created_by')
-                ->references('id')
-                ->on('users');
         });
     }
 

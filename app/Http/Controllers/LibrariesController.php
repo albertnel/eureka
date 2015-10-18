@@ -24,10 +24,7 @@ class LibrariesController extends Controller
 
     public function store(LibraryRequest $request)
     {
-        $request = $request->all();
-        $request['created_by'] = Auth::id();
-
-        Library::create($request);
+        Library::create($request->all());
 
         return redirect('admin/libraries');
     }
