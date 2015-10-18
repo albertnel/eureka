@@ -16,3 +16,8 @@ Route::get('/', function () {
 });
 
 Route::resource('admin/libraries', 'LibrariesController');
+
+Route::controllers([
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController'
+]);

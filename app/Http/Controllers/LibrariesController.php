@@ -6,6 +6,7 @@ use App\Library;
 use App\Http\Requests;
 use App\Http\Requests\LibraryRequest;
 use App\Http\Controllers\Controller;
+use Auth;
 
 class LibrariesController extends Controller
 {
@@ -23,7 +24,10 @@ class LibrariesController extends Controller
 
     public function store(LibraryRequest $request)
     {
-        Library::create($request->all());
+        $request = $request->all();
+        $request['created_by'] = Auth::id();
+
+        Library::create($request);
 
         return redirect('admin/libraries');
     }
