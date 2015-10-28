@@ -10,6 +10,11 @@ use Auth;
 
 class LibrariesController extends Controller
 {
+    public function __construct()
+    {
+        // $this->middleware('auth', ['only' => 'create']);
+    }
+
     public function index()
     {
     	$libraries = Library::all();
