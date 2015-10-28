@@ -12,4 +12,9 @@ class Library extends Model
     {
     	return $this->hasMany('App\Question');
     }
+
+    public function categories()
+    {
+    	return $this->belongsToMany('App\Category', 'category_libraries', 'library_id', 'category_id');
+    }
 }
