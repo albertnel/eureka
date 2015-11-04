@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'Libraries')
+
 @section('content')
 
 <h1>Libraries</h1>

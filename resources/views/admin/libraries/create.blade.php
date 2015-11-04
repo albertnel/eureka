@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'Create Library')
+
 @section('content')
 
 	<h1>New Library</h1>

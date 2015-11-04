@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'Create Category')
+
 @section('content')
 
 	<h1>New Category</h1>

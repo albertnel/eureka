@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'Edit Library')
+
 @section('content')
 
 	<h1>{{ $library->name }}</h1>

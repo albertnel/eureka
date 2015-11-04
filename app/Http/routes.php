@@ -15,8 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('admin/libraries', 'LibrariesController');
 Route::resource('admin/categories', 'CategoriesController');
+Route::resource('admin/libraries', 'LibrariesController');
+Route::resource('admin/users', 'UsersController');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
