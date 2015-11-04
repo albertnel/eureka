@@ -29,7 +29,7 @@
                         <li class="active"><a href="/admin/libraries">Libraries</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#contact">Contact</a></li>
-                        <li><a href="#">Logout</a>
+                        <li><a href="/auth/logout">Logout</a>
                     </ul>
                 </div>
 
