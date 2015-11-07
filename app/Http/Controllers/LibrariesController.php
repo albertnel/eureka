@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Requests\LibraryRequest;
 use App\Http\Controllers\Controller;
 use Auth;
+use Illuminate\Http\Request;
 
 class LibrariesController extends Controller
 {
@@ -16,15 +17,17 @@ class LibrariesController extends Controller
         // $this->middleware('auth', ['only' => 'create']);
     }
 
-    public function index()
+    public function index(Request $request)
     {
     	$libraries = Library::all();
+        // dd($request->is('admin/libraries*'));
 
-    	return view('admin/libraries/index', compact('libraries'));
+    	return view('admin/libraries/index', compact('request', 'libraries'));
     }
 
     public function create()
     {
+        dd(Route::current());
         return view('admin/libraries/create');
     }
 

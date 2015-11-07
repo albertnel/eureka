@@ -26,9 +26,9 @@
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="/admin/libraries">Libraries</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li @if ($request->is('admin/categories*')) class="active" @endif><a href="/admin/categories">Categories</a></li>
+                        <li @if ($request->is('admin/libraries*')) class="active" @endif><a href="/admin/libraries">Libraries</a></li>
+                        <li @if ($request->is('admin/users*')) class="active" @endif><a href="/admin/users">Users</a></li>
                         <li><a href="/auth/logout">Logout</a>
                     </ul>
                 </div>
