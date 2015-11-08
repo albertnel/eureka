@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>Eureka - @yield('title')</title>
+        <title>Eureka @yield('title')</title>
 
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
         <link href="/css/app.css" rel="stylesheet">
@@ -24,14 +24,24 @@
                     </button>
                     <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-education"></span>&nbsp;&nbsp;Eureka</a>
                 </div>
-                <div id="navbar" class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li @if ($request->is('admin/categories*')) class="active" @endif><a href="/admin/categories">Categories</a></li>
-                        <li @if ($request->is('admin/libraries*')) class="active" @endif><a href="/admin/libraries">Libraries</a></li>
-                        <li @if ($request->is('admin/users*')) class="active" @endif><a href="/admin/users">Users</a></li>
-                        <li><a href="/auth/logout">Logout</a>
-                    </ul>
-                </div>
+
+                @if (Auth::check())
+                    <div id="navbar" class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li>Test</li>
+                            <li @if (Request::is('admin/categories*')) class="active" @endif><a href="/admin/categories">Categories</a></li>
+                            <li @if (Request::is('admin/libraries*')) class="active" @endif><a href="/admin/libraries">Libraries</a></li>
+                            <li @if (Request::is('admin/users*')) class="active" @endif><a href="/admin/users">Users</a></li>
+                            <li><a href="/auth/logout">Logout</a>
+                        </ul>
+                    </div>
+                @else
+                    <div id="navbar" class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/auth/login">Login</a>
+                        </ul>
+                    </div>
+                @endif
 
             </div>
 

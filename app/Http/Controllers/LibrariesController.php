@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Library;
-use App\Http\Requests;
 use App\Http\Requests\LibraryRequest;
 use App\Http\Controllers\Controller;
-use Auth;
-use Illuminate\Http\Request;
+use Request;
 
 class LibrariesController extends Controller
 {
@@ -17,17 +15,15 @@ class LibrariesController extends Controller
         // $this->middleware('auth', ['only' => 'create']);
     }
 
-    public function index(Request $request)
+    public function index()
     {
     	$libraries = Library::all();
-        // dd($request->is('admin/libraries*'));
 
-    	return view('admin/libraries/index', compact('request', 'libraries'));
+    	return view('admin/libraries/index', compact('libraries'));
     }
 
     public function create()
     {
-        dd(Route::current());
         return view('admin/libraries/create');
     }
 
@@ -52,7 +48,7 @@ class LibrariesController extends Controller
         return view('admin/libraries/edit', compact('library'));
     }
 
-    public function update($id, LibraryRequest $request)
+    public function update(LibraryRequest $request, $id)
     {
         $library = Library::findOrFail($id);
         $library->update($request->all());

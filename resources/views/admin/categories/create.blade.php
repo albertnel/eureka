@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', 'Create Category')
+@section('title', '- Create Category')
 
 @section('content')
 
@@ -9,7 +9,7 @@
 
 	{!! Form::open(['url' => 'admin/categories']) !!}
 
-		@include('admin.categories._form', ['submitButtonText' => 'Add Library'])
+		@include('admin.categories._form', ['submitButtonText' => 'Add Category'])
 
 	{!! Form::close() !!}
 

@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Http\Requests\CategoryRequest;
-use Illuminate\Http\Request;
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Request;
 
 class CategoriesController extends Controller
 {
@@ -69,7 +68,9 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::findOrFail($id);
+
+        return view('admin/categories/edit', compact('category'));
     }
 
     /**
@@ -81,7 +82,10 @@ class CategoriesController extends Controller
      */
     public function update(CategoryRequest $request, $id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $category->update($request->all());
+
+        return redirect('admin/categories');
     }
 
     /**
@@ -92,6 +96,9 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $category->delete();
+
+        return redirect('admin/categories');
     }
 }
