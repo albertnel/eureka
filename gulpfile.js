@@ -18,6 +18,11 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
 	mix.styles([
 		'bootstrap.css',
+        'multi-select.css',
 		'app.css'
 	]);
+
+    mix.scripts([
+        'jquery-1.11.3.min.js'
+    ]);
 });

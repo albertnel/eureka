@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Library;
 use App\Http\Requests\LibraryRequest;
 use App\Http\Controllers\Controller;
@@ -24,7 +25,9 @@ class LibrariesController extends Controller
 
     public function create()
     {
-        return view('admin/libraries/create');
+        $categories = Category::all();
+
+        return view('admin/libraries/create', compact('categories'));
     }
 
     public function store(LibraryRequest $request)
@@ -44,8 +47,10 @@ class LibrariesController extends Controller
     public function edit($id)
     {
         $library = Library::findOrFail($id);
+        $categories = Categories::all();
+        dd($categories);
 
-        return view('admin/libraries/edit', compact('library'));
+        return view('admin/libraries/edit', compact('library', 'categories'));
     }
 
     public function update(LibraryRequest $request, $id)

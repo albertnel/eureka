@@ -9,7 +9,7 @@
 
 	{!! Form::open(['url' => 'admin/libraries']) !!}
 
-		@include('admin.libraries._form', ['submitButtonText' => 'Add Library'])
+		@include('admin.libraries._form', ['submitButtonText' => 'Add Library', 'categories' => $categories])
 
 	{!! Form::close() !!}
 

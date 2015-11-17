@@ -6,6 +6,8 @@
         <title>Eureka @yield('title')</title>
 
         <link href="/css/all.css" rel="stylesheet">
+
+        <script src="/js/all.js" type="text/javascript"></script>
     </head>
 
     <body>
