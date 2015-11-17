@@ -27,7 +27,6 @@
                 @if (Auth::check())
                     <div id="navbar" class="collapse navbar-collapse">
                         <ul class="nav navbar-nav">
-                            <li>Test</li>
                             <li @if (Request::is('admin/categories*')) class="active" @endif><a href="/admin/categories">Categories</a></li>
                             <li @if (Request::is('admin/libraries*')) class="active" @endif><a href="/admin/libraries">Libraries</a></li>
                             <li @if (Request::is('admin/users*')) class="active" @endif><a href="/admin/users">Users</a></li>
