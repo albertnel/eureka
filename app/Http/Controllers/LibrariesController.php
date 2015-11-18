@@ -32,7 +32,12 @@ class LibrariesController extends Controller
 
     public function store(LibraryRequest $request)
     {
-        Library::create($request->all());
+        $library = Library::create($request->all());
+
+        foreach ($request->all()['categories-select'] as $key => $value) {
+            $category = Category::findOrFail($value);
+            $library->categories()->attach($category);
+        }
 
         return redirect('admin/libraries');
     }
@@ -48,6 +53,7 @@ class LibrariesController extends Controller
     {
         $library = Library::findOrFail($id);
         $categories = Category::all();
+        $selected_categories = $library->categories;
 
         return view('admin/libraries/edit', compact('library', 'categories'));
     }
@@ -56,6 +62,11 @@ class LibrariesController extends Controller
     {
         $library = Library::findOrFail($id);
         $library->update($request->all());
+
+        foreach ($request->all()['categories-select'] as $key => $value) {
+            $category = Category::findOrFail($value);
+            $library->categories()->attach($category);
+        }
 
         return redirect('admin/libraries');
     }

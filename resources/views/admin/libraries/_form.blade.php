@@ -8,7 +8,7 @@
 	{!! Form::textarea('description', null, ['class' => 'form-control']) !!}
 </div>
 
-<select multiple="multiple" id="my-select" name="my-select[]">
+<select multiple="multiple" id="categories-select" name="categories-select[]">
     @foreach ($categories as $category)
         <option value="{{ $category->id }}">{{ $category->name }}</option>
     @endforeach
@@ -22,6 +22,7 @@
 <script src="/js/jquery.multi-select.js" type="text/javascript"></script>
 <script type="text/javascript">
 
-$('#my-select').multiSelect();
+$("#categories-select").multiSelect();
+$("#categories-select").multiSelect("select", ["1", "3"]);
 
 </script>
