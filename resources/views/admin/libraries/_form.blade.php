@@ -10,7 +10,7 @@
 
 <select multiple="multiple" id="my-select" name="my-select[]">
     @foreach ($categories as $category)
-        <option value="">{{ $category->name }}</option>
+        <option value="{{ $category->id }}">{{ $category->name }}</option>
     @endforeach
 </select>
 

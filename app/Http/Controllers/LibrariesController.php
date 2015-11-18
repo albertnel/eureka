@@ -47,8 +47,7 @@ class LibrariesController extends Controller
     public function edit($id)
     {
         $library = Library::findOrFail($id);
-        $categories = Categories::all();
-        dd($categories);
+        $categories = Category::all();
 
         return view('admin/libraries/edit', compact('library', 'categories'));
     }
