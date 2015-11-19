@@ -23,6 +23,15 @@
 <script type="text/javascript">
 
 $("#categories-select").multiSelect();
-$("#categories-select").multiSelect("select", ["1", "3"]);
+
+// Set the selected categories if applicable
+var selectedCategories = [];
+@if (isset($selected_categories))
+	@foreach ($selected_categories as $category)
+		selectedCategories.push("" + {{ $category->id }} + "");
+	@endforeach
+@endif
+
+$("#categories-select").multiSelect("select", selectedCategories);
 
 </script>

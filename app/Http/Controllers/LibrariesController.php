@@ -55,7 +55,7 @@ class LibrariesController extends Controller
         $categories = Category::all();
         $selected_categories = $library->categories;
 
-        return view('admin/libraries/edit', compact('library', 'categories'));
+        return view('admin/libraries/edit', compact('library', 'categories', 'selected_categories'));
     }
 
     public function update(LibraryRequest $request, $id)
