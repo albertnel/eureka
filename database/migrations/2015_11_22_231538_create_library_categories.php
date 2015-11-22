@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoryLibraries extends Migration
+class CreateLibraryCategories extends Migration
 {
     /**
      * Run the migrations.
@@ -12,15 +12,15 @@ class CreateCategoryLibraries extends Migration
      */
     public function up()
     {
-        Schema::create('category_libraries', function (Blueprint $table) {
-            $table->integer('category_id')->unsigned();
+        Schema::create('library_categories', function (Blueprint $table) {
             $table->integer('library_id')->unsigned();
+            $table->integer('category_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('category_id')
-                ->references('id')->on('categories');
             $table->foreign('library_id')
                 ->references('id')->on('libraries');
+            $table->foreign('category_id')
+                ->references('id')->on('categories');
         });
     }
 
@@ -31,6 +31,6 @@ class CreateCategoryLibraries extends Migration
      */
     public function down()
     {
-        Schema::drop('category_libraries');
+        Schema::drop('library_categories');
     }
 }

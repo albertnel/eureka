@@ -15,6 +15,6 @@ class Library extends Model
 
     public function categories()
     {
-    	return $this->belongsToMany('App\Category', 'category_libraries', 'library_id', 'category_id');
+    	return $this->belongsToMany('App\Category', 'library_categories', 'library_id', 'category_id');
     }
 }
