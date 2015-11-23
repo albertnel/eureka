@@ -19,6 +19,8 @@ elixir(function(mix) {
 	mix.styles([
 		'bootstrap.css',
         'multi-select.css',
+        'jquery.timepicker.css',
+        'bootstrap-datepicker.css',
 		'app.css'
 	]);
 

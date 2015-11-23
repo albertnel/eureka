@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Exam;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ExamRequest;
@@ -28,7 +29,9 @@ class ExamsController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+
+        return view('admin/exams/create', compact('categories'));
     }
 
     /**
