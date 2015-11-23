@@ -35,13 +35,18 @@ class Exam extends Model
     	'display_marks_percentage',
     ];
 
-    public function libraries()
-    {
-    	return $this->hasMany('App\Library');
-    }
-
     public function categories()
     {
-    	return $this->belongsToMany('App\Category', 'exam_categories', 'exam_id', 'category_id');
+        return $this->belongsToMany('App\Category', 'exam_categories', 'exam_id', 'category_id');
+    }
+
+    public function libraries()
+    {
+    	return $this->belongsToMany('App\Library', 'exam_libraries', 'exam_id', 'library_id');
+    }
+
+    public function questions()
+    {
+        return $this->belongsToMany('App\Question', 'exam_questions', 'exam_id', 'question_id');
     }
 }

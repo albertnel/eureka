@@ -20,6 +20,7 @@ Route::get('/', function() {
 });
 
 Route::resource('admin/categories', 'CategoriesController');
+Route::resource('admin/exams', 'ExamsController');
 Route::resource('admin/libraries', 'LibrariesController');
 Route::resource('admin/users', 'UsersController');
 Route::get('admin', function() { return view('admin/index'); });

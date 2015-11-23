@@ -16,7 +16,9 @@ class ExamsController extends Controller
      */
     public function index()
     {
+        $exams = Exam::all();
 
+        return view('admin/exams/index', compact('exams'));
     }
 
     /**
