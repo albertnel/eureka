@@ -40,9 +40,17 @@ class ExamsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ExamRequest $request)
     {
-        //
+        // dd($request->all());
+        $exam = Exam::create($request->all());
+
+        /*foreach ($request->all()['categories-select'] as $key => $value) {
+            $category = Category::findOrFail($value);
+            $exam->categories()->attach($category);
+        }*/
+
+        return redirect('admin/exams');
     }
 
     /**
@@ -64,7 +72,10 @@ class ExamsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $exam  = Exam::findOrFail($id);
+        $categories = Category::all();
+
+        return view('admin/exams/edit', compact('exam', 'categories'));
     }
 
     /**

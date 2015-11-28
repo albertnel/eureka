@@ -31,6 +31,7 @@
                         <ul class="nav navbar-nav">
                             <li @if (Request::is('admin/categories*')) class="active" @endif><a href="/admin/categories">Categories</a></li>
                             <li @if (Request::is('admin/libraries*')) class="active" @endif><a href="/admin/libraries">Libraries</a></li>
+                            <li @if (Request::is('admin/exams*')) class="active" @endif><a href="/admin/exams">Exams</a></li>
                             <li @if (Request::is('admin/users*')) class="active" @endif><a href="/admin/users">Users</a></li>
                             <li><a href="/auth/logout">Logout</a>
                         </ul>
