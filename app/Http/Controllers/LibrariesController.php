@@ -39,6 +39,8 @@ class LibrariesController extends Controller
             $library->categories()->attach($category);
         }
 
+        session()->flash('flash_message', 'Library "' . $library->name . '" has been created.');
+
         return redirect('admin/libraries');
     }
 

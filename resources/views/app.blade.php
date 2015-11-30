@@ -52,9 +52,15 @@
 
     		@yield('header')
 
+            @include('partials.flash_message')
+
     		@yield('content')
 
     		@yield('footer')
+
+            <script>
+                $("div.alert-success").delay(300).slideUp(300);
+            </script>
 
     	</div>
 
