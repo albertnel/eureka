@@ -19,13 +19,13 @@ class CreateExamsTable extends Migration
             $table->time('start_time');
             $table->date('end_date');
             $table->time('end_time');
-            $table->time('time_limit');
+            $table->unsignedInteger('time_limit');
             $table->boolean('is_survey');
             $table->string('password', 60);
             $table->text('info');
             $table->unsignedTinyInteger('default_allowed_attempts');
             $table->boolean('feedback');
-            $table->time('feedback_time_limit');
+            $table->unsignedInteger('feedback_time_limit');
             $table->boolean('feedback_comments');
             $table->boolean('randomize_question');
             $table->boolean('force_complete');

@@ -46,6 +46,8 @@ class CategoriesController extends Controller
     {
         Category::create($request->all());
 
+        session()->flash('flash_message', 'Category "' . $library->name . '" has been created.');
+
         return redirect('admin/categories');
     }
 

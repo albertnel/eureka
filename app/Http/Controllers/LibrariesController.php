@@ -67,8 +67,21 @@ class LibrariesController extends Controller
 
         foreach ($request->all()['categories-select'] as $key => $value) {
             $category = Category::findOrFail($value);
-            $library->categories()->attach($category);
+
+            $found = false;
+            foreach ($library->categories as $library_category) {
+                if ($library_category->id == $category->id) {
+                    $found = true;
+                    break;
+                }
+            }
+
+            if (!$found) {
+                $library->categories()->attach($category);
+            }
         }
+
+
 
         return redirect('admin/libraries');
     }

@@ -45,10 +45,12 @@ class ExamsController extends Controller
         // dd($request->all());
         $exam = Exam::create($request->all());
 
-        /*foreach ($request->all()['categories-select'] as $key => $value) {
+        foreach ($request->all()['categories-select'] as $key => $value) {
             $category = Category::findOrFail($value);
             $exam->categories()->attach($category);
-        }*/
+        }
+
+        session()->flash('flash_message', 'Exam "' . $exam->name . '" has been created.');
 
         return redirect('admin/exams');
     }
@@ -74,20 +76,40 @@ class ExamsController extends Controller
     {
         $exam  = Exam::findOrFail($id);
         $categories = Category::all();
+        $selected_categories = $exam->categories;
 
-        return view('admin/exams/edit', compact('exam', 'categories'));
+        return view('admin/exams/edit', compact('exam', 'categories', 'selected_categories'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request  $request -- Not applicable anymore
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ExamRequest $request, $id)
     {
-        //
+        $exam = Exam::findOrFail($id);
+        $exam->update($request->all());
+
+        foreach ($request->all()['categories-select'] as $key => $value) {
+            $category = Category::findOrFail($value);
+
+            $found = false;
+            foreach ($exam->categories as $exam_category) {
+                if ($exam_category->id == $category->id) {
+                    $found = true;
+                    break;
+                }
+            }
+
+            if (!$found) {
+                $exam->categories()->attach($category);
+            }
+        }
+
+        return redirect('admin/exams');
     }
 
     /**
