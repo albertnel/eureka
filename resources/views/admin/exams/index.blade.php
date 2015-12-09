@@ -46,7 +46,7 @@
                 @else
 
                     <tr>
-                        <td colspan="3">No examinations available yet.</td>
+                        <td colspan="7">No examinations available yet.</td>
                     </tr>
 
                 @endif

@@ -36,7 +36,7 @@
 				@else
 
 					<tr>
-						<td colspan="3">No categories available yet.</td>
+						<td colspan="2">No categories available yet.</td>
 					</tr>
 
 				@endif
