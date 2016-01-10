@@ -30,6 +30,10 @@
 							<td>
 								<a href="{{ action('LibrariesController@edit', [$library->id]) }}" title="Edit"><span class="glyphicon glyphicon-pencil"></span></a>
 								<a href="{{ action('LibrariesController@show', [$library->id]) }}" title="Delete"><span class="glyphicon glyphicon-trash"></span></a>
+								{{ Form::open(['method' => 'DELETE', 'route' => 'admin.libraries.destroy', $library->id]) }}
+					                {{ Form::hidden('id', $library->id) }}
+					                {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
+					            {{ Form::close() }}
 							</td>
 						</tr>
 
