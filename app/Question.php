@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
 {
-    public function library()
+    public function libraries()
     {
     	return $this->belongsTo('App\Library');
     }
