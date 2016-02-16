@@ -24,7 +24,7 @@ class CreateQuestionsTable extends Migration
             $table->boolean('randomize_options');
             $table->tinyInteger('num_options_to_display')->unsigned();
             $table->boolean('active');
-            $table->timestamps();
+            $table->timestamps()->useCurrent();
 
             $table->foreign('library_id')
                 ->references('id')
