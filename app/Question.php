@@ -11,6 +11,11 @@ class Question extends Model
     	return $this->belongsTo('App\Library');
     }
 
+    public function returnAllAries()
+    {
+        return false;
+    }
+
     public function setQuestion($question)
     {
     	$this->question = $question;
