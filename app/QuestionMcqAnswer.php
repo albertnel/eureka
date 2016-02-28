@@ -9,7 +9,7 @@ class QuestionMcqAnswer extends Model
 {
     public function create($params, $question)
     {
-
+        //$mcq = $question->
     }
 
     public function getQuestionData()

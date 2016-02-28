@@ -14,7 +14,6 @@ class CreateQuestionsTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('library_id')->unsigned();
             $table->string('question_code');
             $table->text('question');
             $table->decimal('marks', 3, 1);
@@ -24,12 +23,16 @@ class CreateQuestionsTable extends Migration
             $table->boolean('randomize_options');
             $table->tinyInteger('num_options_to_display')->unsigned();
             $table->boolean('active');
-            $table->timestamps()->useCurrent();
+            // $table->timestamps()->useCurrent();
 
+            $table->integer('library_id')->unsigned();
             $table->foreign('library_id')
                 ->references('id')
                 ->on('libraries')
                 ->onDelete('cascade');
+
+            $table->integer('question_type_id')->unsigned();
+            $table->string('question_type_type');
         });
     }
 

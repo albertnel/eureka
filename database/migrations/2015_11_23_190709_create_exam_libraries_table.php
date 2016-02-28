@@ -15,7 +15,7 @@ class CreateExamLibrariesTable extends Migration
         Schema::create('exam_libraries', function (Blueprint $table) {
             $table->integer('exam_id')->unsigned();
             $table->integer('library_id')->unsigned();
-            $table->timestamps()->useCurrent();
+            // $table->timestamps()->useCurrent();
 
             $table->foreign('exam_id')
                 ->references('id')->on('exams');

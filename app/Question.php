@@ -18,7 +18,7 @@ class Question extends Model
         'active'
     ];
 
-    public function saveQuestion($params, $library)
+    public function create($params, $library)
     {
         $question = $library->questions()->create($params);
         return $question;

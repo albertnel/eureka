@@ -16,7 +16,7 @@ class CreateQuestionMcqAnswers extends Migration
             $table->increments('id');
             $table->integer('question_id')->unsigned();
             $table->json('question_data');
-            $table->timestamps()->useCurrent();
+            $table->timestamps();
 
             $table->foreign('question_id')
                 ->references('id')

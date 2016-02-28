@@ -15,7 +15,7 @@ class CreateExamCategories extends Migration
         Schema::create('exam_categories', function (Blueprint $table) {
             $table->integer('exam_id')->unsigned();
             $table->integer('category_id')->unsigned();
-            $table->timestamps()->useCurrent();
+            // $table->timestamps()->useCurrent();
 
             $table->foreign('exam_id')
                 ->references('id')->on('exams');
