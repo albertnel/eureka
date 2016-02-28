@@ -40,7 +40,7 @@ class CreateExamsTable extends Migration
             $table->boolean('display_marks_total');
             $table->boolean('display_marks_per_library');
             $table->boolean('display_marks_percentage');
-            // $table->timestamps()->useCurrent();
+            $table->timestamps();
         });
     }
 

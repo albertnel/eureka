@@ -15,7 +15,7 @@ class CreateLibraryCategories extends Migration
         Schema::create('library_categories', function (Blueprint $table) {
             $table->integer('library_id')->unsigned();
             $table->integer('category_id')->unsigned();
-            // $table->timestamps()->useCurrent();
+            $table->timestamps();
 
             $table->foreign('library_id')
                 ->references('id')->on('libraries');
