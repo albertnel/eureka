@@ -15,10 +15,12 @@ class Question extends Model
         'case_sensitive',
         'randomize_options',
         'num_options_to_display',
-        'active'
+        'active',
+        'answer_id',
+        'answer_type'
     ];
 
-    public function create($params, $library)
+    public function createQuestion($params, $library)
     {
         $question = $library->questions()->create($params);
         return $question;
@@ -32,5 +34,10 @@ class Question extends Model
     public function setQuestion($question)
     {
     	$this->question = $question;
+    }
+
+    public function answer()
+    {
+        return $this->morphTo();
     }
 }
