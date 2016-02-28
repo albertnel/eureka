@@ -37,6 +37,24 @@ extension=php_openssl.dll
 extension=php_pdo_mysql.dll
 ```
 
+### NPM
+
+Download and install NPM: https://www.npmjs.com/package/npm
+
+### GULP
+
+First install Gulp globally.
+
+``npm install -g gulp``
+
+Next, install Gulp in your project directory.
+
+``npm install --save-dev gulp``
+
+To compile SASS/CSS/JS files, run ``gulp``.
+
+To automatically watch the project folder for changes, run ``gulp watch``.
+
 ### Redis
 
 Download and install Redis from: https://github.com/MSOpenTech/redis/releases
