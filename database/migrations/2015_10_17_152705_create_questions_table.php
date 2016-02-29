@@ -31,7 +31,7 @@ class CreateQuestionsTable extends Migration
                 ->on('libraries')
                 ->onDelete('cascade');
 
-            $table->integer('answer_id')->unsigned();
+            $table->integer('answer_id');
             $table->string('answer_type');
         });
     }

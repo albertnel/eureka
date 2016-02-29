@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Question;
+// use App\Question;
 use Illuminate\Database\Eloquent\Model;
 
 class QuestionMcqAnswer extends Model

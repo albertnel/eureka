@@ -14,14 +14,14 @@ class CreateQuestionMcqAnswers extends Migration
     {
         Schema::create('question_mcq_answers', function (Blueprint $table) {
             $table->increments('id');
-            //$table->integer('question_id')->unsigned();
-            $table->json('question_data');
+            $table->integer('question_id')->unsigned();
+            $table->string('question_data');
             $table->timestamps();
 
-            /*$table->foreign('question_id')
+            $table->foreign('question_id')
                 ->references('id')
                 ->on('questions')
-                ->onDelete('cascade');*/
+                ->onDelete('cascade');
         });
     }
 
