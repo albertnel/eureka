@@ -2,14 +2,13 @@
 
 namespace App;
 
-// use App\Question;
 use Illuminate\Database\Eloquent\Model;
 
-class QuestionMcqAnswer extends Model
+class QuestionMtfAnswer extends Model
 {
     public function getQuestionData()
     {
-    	return json_decode($this->question_data, true);
+        return json_decode($this->question_data, true);
     }
 
     public function question()
